@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-// import React, {useEffect,useState} from 'react'
+// import React, {useState} from 'react'
+import React, {useEffect,useState} from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
@@ -52,12 +52,12 @@ export default function News(props) {
     // setArticle(article.concat(parsedData.articles));
     // props.setprogress(100);
     // };
-    componentDidMount();
+    // componentDidMount();
     // fetchMoreData();
-    // useEffect(()=>{
-    //   updateNews();
-    //   // eslint-disable-next-line
-    // },[])
+    useEffect(()=>{
+      componentDidMount();
+      // eslint-disable-next-line
+    },[])
     const handlePrevClick= async ()=>{
       let url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=22469e271caf45c1a3ea9747ae701f34&page=${page-1}&pageSize=${props.pageSize}`;
       setloading(true);
