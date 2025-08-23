@@ -32,7 +32,7 @@ export default function News(props) {
      setArticle(parsedData.articles);
     //  console.log(page)
     //  console.log(parsedData.articles)
-    // settotalResult(parsedData.totalResults);    
+    settotalResult(parsedData.totalResults);    
     props.setprogress(100);
   }
     const capitalize=(word)=>{
@@ -63,7 +63,7 @@ export default function News(props) {
       setloading(true);
     let data=await fetch(url);
     let parsedData= await data.json();
-    setpage(page+1);
+    setpage(page-1);
     setArticle(parsedData.articles);
     setloading(false);
     //   this.setState({
@@ -80,10 +80,10 @@ export default function News(props) {
       let parsedData= await data.json();
       let TotalResult=await parsedData.totalResults;
       settotalResult(TotalResult);
-      if (!(this.state.page+1>Math.ceil(totalResults/props.pageSize))){
+      if (!(page+1>Math.ceil(totalResults/props.pageSize))){
         setpage(page+1);
         setArticle(parsedData.articles);
-        setloading(false);
+      setloading(false);
       // this.setState({
       //   page: this.state.page+1,
       //   article: parsedData.articles,
